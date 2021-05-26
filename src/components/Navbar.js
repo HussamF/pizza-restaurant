@@ -8,10 +8,9 @@ function Navbar() {
   const { openSidebar } = useGlobalContext();
   return (
     <Nav>
-      <NavLink to='/'>Pizza</NavLink>
-      <NavIcon>
-        <p>Menu</p>
-        <Bars src={Pizza} onClick={openSidebar} />
+      <NavIcon onClick={openSidebar}>
+        <h1>Menu</h1>
+        <Bars src={Pizza} />
       </NavIcon>
     </Nav>
   );
@@ -27,36 +26,22 @@ const Nav = styled.nav`
   font-size: var(--p-fontSize);
 `;
 
-const NavLink = styled(Link)`
-  color: var(--white-color);
-  font-size: var(--h-small-fontSize);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  @media screen and (max-width: 400px) {
-    position: absolute;
-    top: 10px;
-    left: 25px;
-  }
-`;
-
 const NavIcon = styled.div`
-  display: block;
+  display: flex;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 30px;
+  right: 30px;
   cursor: pointer;
+  gap: 0.5rem;
   color: var(--white-color);
-  p {
-    transform: translate(-175%, 100%);
+  h1 {
+    /* transform: translate(-130%, 70%); */
     font-weight: bold;
   }
 `;
 
 const Bars = styled.img`
-  transform: translate(-50%, -15%);
+  /* transform: translate(-50%, -15%); */
   width: 35px;
 `;
 

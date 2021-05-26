@@ -31,6 +31,8 @@ const GlobalStyle = createGlobalStyle`
     --shadow-white-hover:rgba(255, 255, 255,.09);
     --shadow-black:rgba(0, 0, 0,.05);
     --shadow-black-hover:rgba(0, 0, 0,.09);
+    --h-font:  'Fondamento', cursive;
+    --p-font: 'Cabin', sans-serif;
 }
 
 *{
@@ -38,6 +40,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Kanit', sans-serif ;
+    
+}
+
+h1,h2,h3,h3{
+font-family: var(--h-font);
+}
+
+p{
+    font-family: var(--p-font);
+    letter-spacing: 1px;
 }
 
 body{

@@ -66,7 +66,7 @@ const ProductInfo = styled.div`
   text-align: center;
 `;
 
-const ProductName = styled.h2`
+const ProductName = styled.p`
   font-weight: 600;
   font-size: var(--p-fontSize);
 `;

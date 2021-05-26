@@ -18,7 +18,7 @@ export const pizzaOffer = [
     img: pizza2,
     alt: 'Pizza',
     name: 'Meat Pizza',
-    description: 'Tomato sauce, basil, mozzarella, beef, onion, salami',
+    description: 'Tomato sauce, basil, mozzarella, beef, onion',
     price: '$16.99',
     button: 'Add to Cart',
   },

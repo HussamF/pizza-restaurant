@@ -46,7 +46,7 @@ const HeroItems = styled.div`
   color: var(--white-color);
   text-transform: uppercase;
   line-height: 1;
-  font-weight: bold;
+  /* font-weight: bold; */
 
   @media screen and (max-width: 650px) {
     width: 100%;
@@ -55,11 +55,11 @@ const HeroItems = styled.div`
 const HeroH1 = styled.h1`
   font-size: clamp(2.5rem, 10vw, 5rem);
   margin-bottom: 1rem;
-  box-shadow: 3px 5px #e9ba23;
+  box-shadow: 5px 5px #e9ba23;
   letter-spacing: 3px;
 `;
 const HeroP = styled.p`
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   margin-bottom: 2rem;
 `;
 const HeroBtn = styled.button`
