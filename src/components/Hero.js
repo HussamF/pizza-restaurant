@@ -26,6 +26,7 @@ const HeroContainer = styled.section`
   background-position: center;
   background-size: cover;
   height: 100vh;
+  width: 100vw;
 `;
 
 const HeroContent = styled.div`

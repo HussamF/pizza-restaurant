@@ -34,7 +34,7 @@ const ProductOfferContainer = styled.section`
   flex-direction: column;
 `;
 const ProductOfferHeading = styled.h1`
-  font-size: clamp(4rem, 2.5vw, 5rem);
+  font-size: clamp(3rem, 2.5vw, 4rem);
   text-align: center;
   margin-bottom: 5rem;
 `;

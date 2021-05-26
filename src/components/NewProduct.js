@@ -27,6 +27,7 @@ const NewProductContainer = styled.section`
   align-items: center;
   color: var(--white-color);
   padding: 0 1rem;
+  width: 100vw;
 `;
 
 const NewProductHeading = styled.h1`
