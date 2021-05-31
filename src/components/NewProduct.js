@@ -7,7 +7,7 @@ function NewProduct() {
     <NewProductContainer>
       <NewProductHeading>New on Menu</NewProductHeading>
       <NewProductDescription>
-        Four-Cheese Pizza Asiago, Grana Padano, Parmigiano-Reggiano & Pecorino{' '}
+        Four-Cheese Pizza Asiago, Grana Padano, Parmigiano-Reggiano & Pecorino
       </NewProductDescription>
       <OrderBtn>Order Now</OrderBtn>
     </NewProductContainer>
