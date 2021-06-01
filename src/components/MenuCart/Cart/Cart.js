@@ -2,13 +2,22 @@ import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 import { useGlobalContext } from '../../../context';
 import useStyles from './styles';
+import CartItem from './CartItem/CartItem';
+import MenuNav from '../../MenuNav/MenuNav';
+import { Link } from 'react-router-dom';
 
-const CartItems = () => {
-  const { cart } = useGlobalContext();
+const Cart = () => {
+  const { cart, updateCartQty, removeFromCart, emptyCart } = useGlobalContext();
   const classes = useStyles();
 
   const EmptyCart = () => (
-    <Typography variant='subtitle1'>Your Cart is Empty</Typography>
+    <Typography variant='subtitle1'>
+      Your Cart is Empty,
+      <Link to='/menu' className={classes.link}>
+        Back To Menu
+      </Link>
+      !
+    </Typography>
   );
   const FilledCart = () => {
     return (
@@ -16,7 +25,7 @@ const CartItems = () => {
         <Grid container spacing={3}>
           {cart.line_items.map((item) => (
             <Grid item xs={12} sm={4} key={item.id}>
-              <div>{item.name}</div>
+              <CartItem item={item} />
             </Grid>
           ))}
         </Grid>
@@ -31,6 +40,7 @@ const CartItems = () => {
               type='button'
               variant='contained'
               color='secondary'
+              onClick={emptyCart}
             >
               Empty Cart
             </Button>
@@ -51,14 +61,17 @@ const CartItems = () => {
 
   if (!cart.line_items) return 'loading';
   return (
-    <Container>
-      <div className={classes.toolbar} />
-      <Typography className={classes.title} variant='h3'>
-        Your Cart
-      </Typography>
-      {!cart.line_items ? <EmptyCart /> : <FilledCart />}
-    </Container>
+    <>
+      <MenuNav />
+      <Container>
+        <div className={classes.toolbar} />
+        <Typography className={classes.title} variant='h4' gutterBottom>
+          Your Cart
+        </Typography>
+        {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+      </Container>
+    </>
   );
 };
 
-export default CartItems;
+export default Cart;

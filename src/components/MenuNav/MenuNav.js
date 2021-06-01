@@ -13,14 +13,22 @@ import Logo from '../../assets/logo.png';
 import { ShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
 import { useGlobalContext } from '../../context';
+import { Link, useLocation } from 'react-router-dom';
 function MenuNav() {
   const { cart } = useGlobalContext();
   const classes = useStyles();
+  const location = useLocation();
   return (
     <>
       <AppBar position='fixed' className={classes.appBar} colo='inherit'>
         <Toolbar>
-          <Typography variant='h6' className={classes.title} color='inherit'>
+          <Typography
+            component={Link}
+            to='/'
+            variant='h6'
+            className={classes.title}
+            color='inherit'
+          >
             <img
               src={Logo}
               alt='Commerce.js'
@@ -30,13 +38,20 @@ function MenuNav() {
             GreatePizza
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.button}>
-            <IconButton aria-label='show cart items' color='inherit'>
-              <Badge badgeContent={cart.total_items}>
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-          </div>
+          {location.pathname === '/menu' && (
+            <div className={classes.button}>
+              <IconButton
+                component={Link}
+                to='/cart'
+                aria-label='show cart items'
+                color='inherit'
+              >
+                <Badge badgeContent={cart.total_items}>
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </>

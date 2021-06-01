@@ -31,10 +31,27 @@ const AppProvider = ({ children }) => {
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
   };
-
+  //Add Item
   const addToCart = async (productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity);
-    setCart(item.cart);
+    const { cart } = await commerce.cart.add(productId, quantity);
+    setCart(cart);
+  };
+  //Increace Decreace Qty
+  const updateCartQty = async (productId, quantity) => {
+    const { cart } = await commerce.cart.update(productId, { quantity });
+    setCart(cart);
+  };
+
+  //Remove item from cart
+  const removeFromCart = async (productId) => {
+    const { cart } = await commerce.cart.remove(productId);
+    setCart(cart);
+  };
+
+  //Remove all items from cart
+  const emptyCart = async () => {
+    const { cart } = await commerce.cart.empty();
+    setCart(cart);
   };
 
   useEffect(() => {
@@ -51,6 +68,9 @@ const AppProvider = ({ children }) => {
         menuItems,
         addToCart,
         cart,
+        updateCartQty,
+        removeFromCart,
+        emptyCart,
       }}
     >
       {children}

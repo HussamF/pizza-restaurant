@@ -11,7 +11,7 @@ function Sidebar() {
         <CloseIcon src={Close} onClick={closeSidebar} />
       </Icon>
       <SidebarMenu>
-        <SidebarLink to='/'>Pizza</SidebarLink>
+        <SidebarLink to='/menu'>Pizza</SidebarLink>
         <SidebarLink to='/'>Deserts</SidebarLink>
         <SidebarLink to='/'>Full Menu</SidebarLink>
       </SidebarMenu>
