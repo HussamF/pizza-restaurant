@@ -12,7 +12,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { commerce } from '../../lib/commerce';
 import { Link } from 'react-router-dom';
 
-const AddressFrom = ({ checkoutToken }) => {
+const AddressFrom = ({ checkoutToken, next }) => {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState('');
   const [shippingDivisions, setShippingDivisions] = useState([]);
@@ -87,7 +87,11 @@ const AddressFrom = ({ checkoutToken }) => {
         Shipping Address
       </Typography>
       <FormProvider {...methods}>
-        <form>
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            next({ ...data, shippingCountry, shippingDivision, shippingOption })
+          )}
+        >
           <Grid container spacing={3}>
             <FormInput name='fristName' label='First name' />
             <FormInput name='lastname' label='Last name' />
@@ -114,7 +118,7 @@ const AddressFrom = ({ checkoutToken }) => {
               <Select
                 value={shippingDivision}
                 fullWidth
-                onChange={(e) => shippingDivision(e.target.value)}
+                onChange={(e) => setShippingDivision(e.target.value)}
               >
                 {subdivisions.map((subdivision) => (
                   <MenuItem key={subdivision.id} value={subdivision.id}>

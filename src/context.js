@@ -54,6 +54,26 @@ const AppProvider = ({ children }) => {
     setCart(cart);
   };
 
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart);
+  };
+  //Payment
+  const [order, setOrder] = useState({});
+  const [errorMsg, setErrorMsg] = useState('');
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+      setOrder(incomingOrder);
+      refreshCart();
+    } catch (error) {
+      setErrorMsg(error.data.error.message);
+    }
+  };
+
   useEffect(() => {
     fetchCart();
     fetchProducts();
@@ -71,6 +91,9 @@ const AppProvider = ({ children }) => {
         updateCartQty,
         removeFromCart,
         emptyCart,
+        order,
+        handleCaptureCheckout,
+        errorMsg,
       }}
     >
       {children}
