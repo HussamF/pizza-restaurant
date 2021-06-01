@@ -7,7 +7,7 @@ import MenuNav from '../../MenuNav/MenuNav';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, updateCartQty, removeFromCart, emptyCart } = useGlobalContext();
+  const { cart, emptyCart } = useGlobalContext();
   const classes = useStyles();
 
   const EmptyCart = () => (
@@ -50,6 +50,8 @@ const Cart = () => {
               type='button'
               variant='contained'
               color='primary'
+              component={Link}
+              to='/checkout'
             >
               Checkout
             </Button>
